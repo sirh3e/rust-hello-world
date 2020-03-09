@@ -2,10 +2,16 @@ compiler=cargo
 
 .PHONY: run
 
-run: build
+run: test
 	$(compiler) $@
 
-build: clean
+test: build
+	$(compiler) $@
+
+build: fmt
+	$(compiler) $@
+
+fmt: clean
 	$(compiler) $@
 
 clean:
