@@ -5,10 +5,10 @@ compiler=cargo
 run: test
 	$(compiler) $@
 
-test: build
+build: test
 	$(compiler) $@
 
-build: fmt
+test: fmt
 	$(compiler) $@
 
 fmt: clean
@@ -16,3 +16,6 @@ fmt: clean
 
 clean:
 	$(compiler) $@
+
+release:
+	$(compiler) build --release
