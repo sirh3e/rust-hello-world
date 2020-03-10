@@ -1,4 +1,5 @@
 compiler=cargo
+docker_image_name="rust-hello-world"
 
 .PHONY: run
 
@@ -19,3 +20,9 @@ clean:
 
 release:
 	$(compiler) build --release
+
+docker_run: docker_build
+	docker run -it $(docker_image_name)
+
+docker_build: clean
+	docker build -t $(docker_image_name) .
