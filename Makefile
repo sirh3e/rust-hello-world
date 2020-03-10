@@ -24,5 +24,5 @@ release:
 docker_run: docker_build
 	docker run -it $(docker_image_name)
 
-docker_build: clean
+docker_build: test
 	docker build -t $(docker_image_name) .
